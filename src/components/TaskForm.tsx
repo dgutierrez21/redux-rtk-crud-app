@@ -1,7 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { TaskState } from "../store/slices/tasks/tasksSlice";
+import { TaskState, addTask } from "../store/slices/tasks/tasksSlice";
+import { useDispatch } from "react-redux";
 
 const TaskForm = () => {
+  const dispatch = useDispatch();
+
   const [task, setTask] = useState<TaskState>({
     id: "",
     title: "",
@@ -21,7 +24,7 @@ const TaskForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(task);
+    dispatch(addTask(task));
   };
 
   return (
