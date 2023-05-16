@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { TaskState, addTask } from "../store/slices/tasks/tasksSlice";
 import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 const TaskForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const TaskForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    dispatch(addTask(task));
+    dispatch(addTask({ ...task, id: uuidv4() }));
   };
 
   return (
