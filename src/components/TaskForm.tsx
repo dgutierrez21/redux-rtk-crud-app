@@ -3,8 +3,12 @@ import { TaskState, addTask } from "../store/slices/tasks/tasksSlice";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
+import { useNavigate } from "react-router-dom";
+
 const TaskForm = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [task, setTask] = useState<TaskState>({
     id: "",
@@ -26,6 +30,8 @@ const TaskForm = () => {
     e.preventDefault();
 
     dispatch(addTask({ ...task, id: uuidv4() }));
+
+    navigate("/");
   };
 
   return (
