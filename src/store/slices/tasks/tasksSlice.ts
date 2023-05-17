@@ -33,7 +33,17 @@ export const tasksSlice = createSlice({
     deleteTask: (state, { payload }: PayloadAction<string>) => {
       return state.filter((task) => task.id !== payload);
     },
+    editTask: (state, { payload }: PayloadAction<TaskState>) => {
+      const { id, title, description } = payload;
+
+      const foundTask = state.find((task) => task.id === id);
+
+      if (foundTask) {
+        foundTask.title = title;
+        foundTask.description = description;
+      }
+    },
   },
 });
 
-export const { addTask, deleteTask } = tasksSlice.actions;
+export const { addTask, deleteTask, editTask } = tasksSlice.actions;
