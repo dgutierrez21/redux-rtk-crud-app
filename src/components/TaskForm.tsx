@@ -74,7 +74,9 @@ const TaskForm = () => {
         style={{ resize: "none" }}
       ></textarea>
 
-      <button type="submit">Save</button>
+      <button type="submit" className="rounded-md bg-indigo-600 px-2 py-1">
+        Save
+      </button>
     </form>
   );
 };
