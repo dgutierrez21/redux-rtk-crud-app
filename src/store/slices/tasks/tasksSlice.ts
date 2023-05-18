@@ -41,9 +41,12 @@ export const tasksSlice = createSlice({
       if (foundTask) {
         foundTask.title = title;
         foundTask.description = description;
+        // 1
       }
     },
   },
 });
 
 export const { addTask, deleteTask, editTask } = tasksSlice.actions;
+
+// 1. el objeto foundTask se modifica en su sitio actualizando sus campos title y description. Dado que el objeto foundTask es una referencia a un objeto en la matriz de estados, los cambios realizados en el objeto foundTask también modifican el objeto de tarea correspondiente en la matriz de estados. Cuando la función editTask modifica el objeto foundTask y no devuelve nada, Redux detecta que el objeto de estado ha sido modificado y activa una nueva renderización de la interfaz de usuario.
