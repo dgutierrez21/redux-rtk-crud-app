@@ -31,8 +31,13 @@ const TaskList = () => {
             <header className="flex justify-between">
               <h3>{title}</h3>
 
-              <div>
-                <button onClick={() => handleDelete(id)}>delete</button>
+              <div className="flex">
+                <button
+                  onClick={() => handleDelete(id)}
+                  className="self-center rounded-md bg-red-500 px-2 py-1 text-xs"
+                >
+                  delete
+                </button>
                 <Link to={`edit-task/${id}`}>Edit</Link>
               </div>
             </header>
