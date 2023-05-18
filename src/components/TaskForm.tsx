@@ -48,7 +48,10 @@ const TaskForm = () => {
   }, [id, tasks]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="max-w-sm bg-zinc-800 p-4">
+      <label htmlFor="title" className="text-md block font-bold">
+        Title:
+      </label>
       <input
         type="text"
         name="title"
@@ -56,6 +59,11 @@ const TaskForm = () => {
         onChange={handleChange}
         value={task.title}
       />
+
+      <label htmlFor="description" className="text-md block font-bold">
+        Description:
+      </label>
+
       <textarea
         name="description"
         placeholder="description"
