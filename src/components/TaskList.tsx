@@ -32,13 +32,18 @@ const TaskList = () => {
               <h3>{title}</h3>
 
               <div className="flex">
+                <Link
+                  to={`edit-task/${id}`}
+                  className="self-center rounded-md bg-zinc-600 px-2 py-1 text-xs"
+                >
+                  Edit
+                </Link>
                 <button
                   onClick={() => handleDelete(id)}
                   className="self-center rounded-md bg-red-500 px-2 py-1 text-xs"
                 >
                   delete
                 </button>
-                <Link to={`edit-task/${id}`}>Edit</Link>
               </div>
             </header>
 
