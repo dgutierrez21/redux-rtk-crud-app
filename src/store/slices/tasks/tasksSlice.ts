@@ -29,6 +29,7 @@ export const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action: PayloadAction<TaskState>) => {
       state.push(action.payload);
+      // 2
     },
     deleteTask: (state, { payload }: PayloadAction<string>) => {
       return state.filter((task) => task.id !== payload);
@@ -50,3 +51,5 @@ export const tasksSlice = createSlice({
 export const { addTask, deleteTask, editTask } = tasksSlice.actions;
 
 // 1. el objeto foundTask se modifica en su sitio actualizando sus campos title y description. Dado que el objeto foundTask es una referencia a un objeto en la matriz de estados, los cambios realizados en el objeto foundTask también modifican el objeto de tarea correspondiente en la matriz de estados. Cuando la función editTask modifica el objeto foundTask y no devuelve nada, Redux detecta que el objeto de estado ha sido modificado y activa una nueva renderización de la interfaz de usuario.
+
+// 2. En la función addTask, se utiliza el método push para agregar una nueva tarea al array de tareas en el estado actual. A pesar de que push modifica el array existente, en realidad se está agregando un nuevo elemento al final del array. Como resultado, se está creando una copia del array de tareas, agregando la nueva tarea a la copia y devolviendo la copia actualizada como nuevo estado. Es importante tener en cuenta que, aunque push modifica el array existente, no se está modificando el estado actual directamente.
