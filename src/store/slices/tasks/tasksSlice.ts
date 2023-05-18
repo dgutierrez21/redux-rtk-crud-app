@@ -8,20 +8,18 @@ export interface TaskState {
   completed: boolean;
 }
 
-const initialState: TaskState[] = [
-  {
-    id: "1",
-    title: "Task 1",
-    description: "Task 1 description",
-    completed: false,
-  },
-  {
-    id: "2",
-    title: "Task 2",
-    description: "Task 2 description",
-    completed: false,
-  },
-];
+export const loadTasks = () => {
+  try {
+    const tasks = localStorage.getItem("tasks");
+    if (tasks === null) return [];
+
+    return JSON.parse(tasks);
+  } catch (err) {
+    return undefined;
+  }
+};
+
+const initialState: TaskState[] = loadTasks();
 
 export const tasksSlice = createSlice({
   name: "tasks",
