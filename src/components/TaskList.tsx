@@ -25,15 +25,17 @@ const TaskList = () => {
         </Link>
       </header>
 
-      {tasks.map(({ id, title, description }) => (
-        <div key={id}>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <button onClick={() => handleDelete(id)}>delete</button>
+      <div className="grid grid-cols-3 gap-4">
+        {tasks.map(({ id, title, description }) => (
+          <div key={id} className="rounded-md bg-neutral-800 p-4">
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <button onClick={() => handleDelete(id)}>delete</button>
 
-          <Link to={`edit-task/${id}`}>Edit</Link>
-        </div>
-      ))}
+            <Link to={`edit-task/${id}`}>Edit</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
