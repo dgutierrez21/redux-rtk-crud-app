@@ -28,11 +28,16 @@ const TaskList = () => {
       <div className="grid grid-cols-3 gap-4">
         {tasks.map(({ id, title, description }) => (
           <div key={id} className="rounded-md bg-neutral-800 p-4">
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <button onClick={() => handleDelete(id)}>delete</button>
+            <header className="flex justify-between">
+              <h3>{title}</h3>
 
-            <Link to={`edit-task/${id}`}>Edit</Link>
+              <div>
+                <button onClick={() => handleDelete(id)}>delete</button>
+                <Link to={`edit-task/${id}`}>Edit</Link>
+              </div>
+            </header>
+
+            <p>{description}</p>
           </div>
         ))}
       </div>
