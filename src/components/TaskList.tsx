@@ -31,7 +31,7 @@ const TaskList = () => {
             <header className="flex justify-between">
               <h3>{title}</h3>
 
-              <div className="flex">
+              <div className="flex gap-x-2">
                 <Link
                   to={`edit-task/${id}`}
                   className="self-center rounded-md bg-zinc-600 px-2 py-1 text-xs"
