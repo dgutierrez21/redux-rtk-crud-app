@@ -58,6 +58,7 @@ const TaskForm = () => {
         placeholder="title"
         onChange={handleChange}
         value={task.title}
+        className="mb-2 mt-1 w-full rounded-md bg-zinc-600 p-2"
       />
 
       <label htmlFor="description" className="text-md block font-bold">
@@ -69,6 +70,8 @@ const TaskForm = () => {
         placeholder="description"
         onChange={handleChange}
         value={task.description}
+        className="mb-2 mt-1 w-full rounded-md bg-zinc-600 p-2"
+        style={{ resize: "none" }}
       ></textarea>
 
       <button type="submit">Save</button>
